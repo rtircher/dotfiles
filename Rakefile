@@ -1,5 +1,5 @@
 FILES = %w|.emacs .gitconfig .zshrc .vimrc|
-DIRS = %w|.emacs.d .zsh|
+DIRS = %w|.emacs.d .zsh.d|
 HOME = File.expand_path("~/")
 
 desc "Cleans existing files and directories"
@@ -17,7 +17,12 @@ LINKS = (FILES + DIRS).collect do |entry|
   end
 end
 
+desc "Setup global gitignore"
+task :setup_gitignore do
+  sh %Q|git config --global core.excludesfile .gitignore|
+end
+
 desc "Installs symlinks in the home directory for all config files"
 task :install => LINKS
 
-task :default => :install
+task :default => [:install, :setup_gitignore]
