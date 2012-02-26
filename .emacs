@@ -353,7 +353,7 @@ one extra step. Works with: arglist-cont."
         (revert-buffer t t t) )))
   (message "Refreshed open files.") )
 (global-set-key "\M-r" 'revert-buffer-no-confirm)
-(global-set-key "\C-xr" 'revert-all-buffers)
+(global-set-key "\M-R" 'revert-all-buffers)
 
 (defun remove-string-from-buffer (str)
   "Removes all occurences of the string STR from the current buffer."
