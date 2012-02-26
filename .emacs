@@ -150,7 +150,7 @@
  '(indent-tabs-mode nil)
  '(canlock-password "fc42db0a3ede323f9d0f2ac4768d0f88d055a790")
  '(column-number-mode t)
- '(cua-mode t nil (cua-base))
+ ;; '(cua-mode t nil (cua-base))
  '(scroll-bar-mode nil)
  '(transient-mark-mode t)
  '(whitespace-check-leading-whitespace nil)
@@ -325,6 +325,7 @@ one extra step. Works with: arglist-cont."
 (setq uniquify-ignore-buffers-re "^\\*") ;; Ignore special buffers
 
 ;; Custom key bindings
+(global-set-key "\C-z" 'undo)
 (global-set-key "\C-x\C-c" 'ignore)
 (global-set-key "\C-x\C-q" 'kill-emacs)
 (global-set-key "\C-x\C-b" 'bs-show)
@@ -338,6 +339,21 @@ one extra step. Works with: arglist-cont."
 (global-set-key [(meta right)] 'windmove-right)
 (global-set-key [(meta up)] 'windmove-up)
 (global-set-key [(meta down)] 'windmove-down)
+
+;; binding keys to revert buffers
+(defun revert-buffer-no-confirm ()
+  "Revert buffer without confirmation."
+  (interactive) (revert-buffer t t))
+(defun revert-all-buffers ()
+  "Refreshes all open buffers from their respective files."
+  (interactive)
+  (dolist (buf (buffer-list))
+    (with-current-buffer buf
+      (when (and (buffer-file-name) (not (buffer-modified-p)))
+        (revert-buffer t t t) )))
+  (message "Refreshed open files.") )
+(global-set-key "\M-r" 'revert-buffer-no-confirm)
+(global-set-key "\C-xr" 'revert-all-buffers)
 
 (defun remove-string-from-buffer (str)
   "Removes all occurences of the string STR from the current buffer."
