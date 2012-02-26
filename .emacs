@@ -101,7 +101,7 @@
 (setq ispell-program-name "/usr/local/bin/ispell")
 
 (setq default-major-mode 'text-mode)
-(add-hook 'text-mode-hook 'turn-on-auto-fill)
+;; (add-hook 'text-mode-hook 'turn-on-auto-fill)
 (add-hook 'text-mode-hook 'turn-on-flyspell)
 (add-hook 'message-mode-hook 'turn-on-flyspell)
 
@@ -334,6 +334,7 @@ one extra step. Works with: arglist-cont."
 (global-set-key [f6] 'compile)
 (global-set-key [f7] 'recompile)
 (global-set-key "\C-x\M-k" 'duplicate-line)
+(global-set-key "\C-xg" 'magit-status)
 ;; Window movement keys: provides quick jumping between many open windows
 (global-set-key [(meta left)] 'windmove-left)
 (global-set-key [(meta right)] 'windmove-right)
