@@ -5,3 +5,6 @@
 ;; Set default emacs frame size
 (add-to-list 'default-frame-alist '(height . 70))
 (add-to-list 'default-frame-alist '(width . 200))
+
+;; Split window at startup
+(split-window-horizontally)
