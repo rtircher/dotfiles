@@ -30,11 +30,11 @@
 (add-to-list 'load-path "~/.emacs.d/vendor/midje-mode")
 (add-to-list 'load-path "~/.emacs.d/vendor/js2-mode")
 
-(add-to-list 'load-path "~/.emacs.d/feature-mode")
-(add-to-list 'load-path "~/.emacs.d/clojure-mode")
-(add-to-list 'load-path "~/.emacs.d/slime")
-(add-to-list 'load-path "~/.emacs.d/magit")
-(add-to-list 'load-path "~/.emacs.d/emacs-color-theme-solarized")
+(add-to-list 'load-path "~/.emacs.d/vendor/feature-mode")
+(add-to-list 'load-path "~/.emacs.d/vendor/clojure-mode")
+(add-to-list 'load-path "~/.emacs.d/vendor/slime")
+(add-to-list 'load-path "~/.emacs.d/vendor/magit")
+(add-to-list 'load-path "~/.emacs.d/vendor/emacs-color-theme-solarized")
 ;; Load Ruby libraries
 (load-library "ruby-mode")
 (load-library "inf-ruby")

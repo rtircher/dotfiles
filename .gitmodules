@@ -1,21 +1,21 @@
 [submodule ".zsh.d"]
 	path = .zsh.d
 	url = git@github.com:rtircher/oh-my-zsh.git
-[submodule ".emacs.d/feature-mode"]
-	path = .emacs.d/feature-mode
+[submodule ".emacs.d/vendor/feature-mode"]
+	path = .emacs.d/vendor/feature-mode
 	url = https://github.com/michaelklishin/cucumber.el.git
-[submodule ".emacs.d/clojure-mode"]
-	path = .emacs.d/clojure-mode
+[submodule ".emacs.d/vendor/clojure-mode"]
+	path = .emacs.d/vendor/clojure-mode
 	url = git://github.com/technomancy/clojure-mode.git
-[submodule ".emacs.d/slime"]
-	path = .emacs.d/slime
+[submodule ".emacs.d/vendor/slime"]
+	path = .emacs.d/vendor/slime
 	url = git://github.com/nablaone/slime.git
-[submodule ".emacs.d/emacs-color-theme-solarized"]
-	path = .emacs.d/emacs-color-theme-solarized
+[submodule ".emacs.d/vendor/emacs-color-theme-solarized"]
+	path = .emacs.d/vendor/emacs-color-theme-solarized
 	url = https://github.com/sellout/emacs-color-theme-solarized.git
-[submodule ".emacs.d/magit"]
-	path = .emacs.d/magit
+[submodule ".emacs.d/vendor/magit"]
+	path = .emacs.d/vendor/magit
 	url = https://github.com/magit/magit.git
-[submodule ".emacs.d/coffee-mode"]
-	path = .emacs.d/coffee-mode
+[submodule ".emacs.d/vendor/coffee-mode"]
+	path = .emacs.d/vendor/coffee-mode
 	url = https://github.com/defunkt/coffee-mode.git
