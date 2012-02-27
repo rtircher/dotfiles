@@ -57,7 +57,6 @@
 (require 'haml-mode)
 (require 'parenface)
 (require 'yasnippet)
-(require 'todochiku)
 (require 'puppet-mode)
 (require 'feature-mode)
 (require 'linum)
