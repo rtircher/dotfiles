@@ -23,7 +23,7 @@
 (ido-mode t)
 
 (add-to-list 'load-path "~/.emacs.d")
-(add-to-list 'load-path "~/.emacs.d/color-theme-6.6.0")
+(add-to-list 'load-path "~/.emacs.d/vendor/color-theme")
 (add-to-list 'load-path "~/.emacs.d/emacs-color-theme-solarized")
 (add-to-list 'load-path "~/.emacs.d/scala")
 (add-to-list 'load-path "~/.emacs.d/jump")
@@ -89,7 +89,6 @@
 
 ;; Set up my preferred color theme
 (color-theme-initialize)
-;; (color-theme-charcoal-black)
 (color-theme-solarized-dark)
 
 (setq user-mail-address "giles.alexander@thoughtworks.com")
