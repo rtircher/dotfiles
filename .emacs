@@ -48,7 +48,6 @@
 (require 'color-theme-solarized)
 (require 'cc-mode)
 (require 'ruby-mode)
-(require 'haml-mode)
 (require 'parenface)
 (require 'yasnippet)
 (require 'puppet-mode)
