@@ -38,7 +38,7 @@
 (load-library "ruby-mode")
 (load-library "inf-ruby")
 (load-library "rubydb3x")
-(load "~/.emacs.d/nxhtml/autostart.el")
+(load "~/.emacs.d/vendor/nxhtml/autostart.el")
 ;; Load flyspell
 (autoload 'flyspell-mode "flyspell" "On-the-fly spelling checker." t)
 ;; Load js2 mode for improved javascript
