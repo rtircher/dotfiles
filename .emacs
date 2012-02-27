@@ -26,7 +26,7 @@
 (add-to-list 'load-path "~/.emacs.d/vendor/color-theme")
 (add-to-list 'load-path "~/.emacs.d/emacs-color-theme-solarized")
 (add-to-list 'load-path "~/.emacs.d/vendor/jump")
-(add-to-list 'load-path "~/.emacs.d/ruby")
+(add-to-list 'load-path "~/.emacs.d/vendor/ruby")
 (add-to-list 'load-path "~/.emacs.d/vendor/yasnippet-0.2.2")
 (add-to-list 'load-path "~/.emacs.d/feature-mode")
 (add-to-list 'load-path "~/.emacs.d/clojure-mode")
