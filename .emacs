@@ -28,7 +28,7 @@
 (add-to-list 'load-path "~/.emacs.d/scala")
 (add-to-list 'load-path "~/.emacs.d/jump")
 (add-to-list 'load-path "~/.emacs.d/ruby")
-(add-to-list 'load-path "~/.emacs.d/yasnippet-0.2.2")
+(add-to-list 'load-path "~/.emacs.d/vendor/yasnippet-0.2.2")
 (add-to-list 'load-path "~/.emacs.d/feature-mode")
 (add-to-list 'load-path "~/.emacs.d/clojure-mode")
 (add-to-list 'load-path "~/.emacs.d/slime")
@@ -379,7 +379,7 @@ one extra step. Works with: arglist-cont."
 
 ;; Configure Snippeting engine
 (yas/initialize)
-(yas/load-directory "~/.emacs.d/yasnippet-0.2.2/snippets/")
+(yas/load-directory "~/.emacs.d/vendor/yasnippet-0.2.2/snippets/")
 
 ;; nXHtml mode configuration
 (setq
