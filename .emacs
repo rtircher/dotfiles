@@ -26,7 +26,7 @@
 (add-to-list 'load-path "~/.emacs.d/vendor/color-theme")
 (add-to-list 'load-path "~/.emacs.d/vendor/jump")
 (add-to-list 'load-path "~/.emacs.d/vendor/ruby")
-(add-to-list 'load-path "~/.emacs.d/vendor/yasnippet-0.2.2")
+(add-to-list 'load-path "~/.emacs.d/vendor/yasnippet")
 (add-to-list 'load-path "~/.emacs.d/vendor/midje-mode")
 (add-to-list 'load-path "~/.emacs.d/vendor/js2-mode")
 (add-to-list 'load-path "~/.emacs.d/vendor/coffee-mode")
@@ -377,7 +377,7 @@ one extra step. Works with: arglist-cont."
 
 ;; Configure Snippeting engine
 (yas/initialize)
-(yas/load-directory "~/.emacs.d/vendor/yasnippet-0.2.2/snippets/")
+(yas/load-directory "~/.emacs.d/vendor/yasnippet/snippets/")
 
 ;; nXHtml mode configuration
 (setq
