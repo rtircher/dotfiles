@@ -2,15 +2,7 @@
 (setq inhibit-startup-message t)
 
 ;; Load some per-platform config settings
-(load "~/.emacs.d/platform-configs/platform.el")
-(if (eq system-type 'darwin)
-    (load "~/.emacs.d/platform-configs/darwin.el"))
-(if (eq system-type 'gnu/linux)
-    (load "~/.emacs.d/platform-configs/linux.el"))
-(if (eq system-type 'windows-nt)
-    (load "~/.emacs.d/platform-configs/windows.el"))
-(if (eq system-type 'berkeley-unix)
-    (load "~/.emacs.d/platform-configs/freebsd.el"))
+(load "~/.emacs.d/platform-configs/init.el")
 
 ;; Stupid emacs is stupid
 (setq mac-option-key-is-meta nil)
