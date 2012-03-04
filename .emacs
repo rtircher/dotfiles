@@ -89,6 +89,23 @@
 (setq mouse-drag-copy-region nil)
 
 ;; Bind C-o and C-O to create new line below or above the current line (even from the middle of a line)
+(defun rtr-create-line-below ()
+  "Creates a new line below the current line"
+  (interactive)
+  (unless (eolp)
+    (end-of-line))
+  (newline-and-indent))
+(global-set-key "\M-o" 'rtr-create-line-below)
+
+(defun rtr-create-line-above ()
+  "Creates a new line below the current line"
+  (interactive)
+  (unless (bolp)
+    (beginning-of-line))
+  (newline)
+  (forward-line -1)
+  (indent-according-to-mode))
+(global-set-key "\M-O" 'rtr-create-line-above)
 
 (defun turn-on-flyspell ()
   "Turns on flyspell, guaranteed."
