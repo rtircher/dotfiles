@@ -85,6 +85,11 @@
 
 (delete-selection-mode 1)
 
+;; Block emacs to automatically copy the region when selecting text
+(setq mouse-drag-copy-region nil)
+
+;; Bind C-o and C-O to create new line below or above the current line (even from the middle of a line)
+
 (defun turn-on-flyspell ()
   "Turns on flyspell, guaranteed."
   (interactive)
