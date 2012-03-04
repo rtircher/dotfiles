@@ -88,6 +88,10 @@
 ;; Block emacs to automatically copy the region when selecting text
 (setq mouse-drag-copy-region nil)
 
+;; scroll one line at a time (less "jumpy" than defaults)
+(setq mouse-wheel-scroll-amount '(1 ((shift) . 1))) ;; one line at a time
+(setq scroll-step 1) ;; keyboard scroll one line at a time
+
 ;; Bind C-o and C-O to create new line below or above the current line (even from the middle of a line)
 (defun rtr-create-line-below ()
   "Creates a new line below the current line"
