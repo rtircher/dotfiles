@@ -81,7 +81,9 @@
 (color-theme-initialize)
 (color-theme-solarized-dark)
 
-(setq user-mail-address "giles.alexander@thoughtworks.com")
+(setq user-mail-address "rtircher@thoughtworks.com")
+
+(delete-selection-mode 1)
 
 (defun turn-on-flyspell ()
   "Turns on flyspell, guaranteed."
