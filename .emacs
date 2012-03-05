@@ -14,6 +14,7 @@
 (require 'ido)
 (ido-mode t)
 
+(add-to-list 'load-path "~/.emacs.d")
 (add-to-list 'load-path "~/.emacs.d/vendor")
 (add-to-list 'load-path "~/.emacs.d/vendor/color-theme")
 (add-to-list 'load-path "~/.emacs.d/vendor/jump")
@@ -40,6 +41,9 @@
 ;; Turn on linum-mode for every visited file
 (add-hook 'find-file-hook 'linum-mode)
 (setq linum-offset t)
+
+;; Load up customizations
+(require 'rtircher-bindings)
 
 (require 'cl)
 (require 'dired)
@@ -99,7 +103,6 @@
   (unless (eolp)
     (end-of-line))
   (newline))
-(global-set-key "\M-o" 'rtr-create-line-below)
 
 (defun rtr-create-line-above ()
   "Creates a new line below the current line"
@@ -108,7 +111,6 @@
     (beginning-of-line))
   (newline)
   (forward-line -1))
-(global-set-key "\M-O" 'rtr-create-line-above)
 
 (defun turn-on-flyspell ()
   "Turns on flyspell, guaranteed."
@@ -124,6 +126,11 @@
 (setq tab-width 2)
 (setq indent-tabs-mode nil)
 (setq visible-bell t)
+
+(eval-after-load 'magit
+  '(progn
+     (set-face-foreground 'magit-diff-add "green3")
+     (set-face-foreground 'magit-diff-del "red3")))
 
 ;; Ack config
 (autoload 'ack-same "full-ack" nil t)
@@ -141,7 +148,6 @@
      (lambda ()
        (skip-syntax-forward "w_")
        (point)))))
-(define-key isearch-mode-map (kbd "C-x") 'ga/isearch-yank-current-word)
 
 ;; Improved killing:
 (defun ga/kill-entire-current-line ()
@@ -150,7 +156,6 @@
   (save-excursion
     (move-beginning-of-line nil)
     (kill-line 1)))
-(global-set-key "\C-xj" 'ga/kill-entire-current-line)
 
 ;; I only use vertical splits to display two windows of code next to each other,
 ;; typically those two windows will be each wide enough to display most lines, so
@@ -340,23 +345,6 @@ one extra step. Works with: arglist-cont."
 (setq uniquify-after-kill-buffers-p t) ;; Rename uniquified buffers when one is killed
 (setq uniquify-ignore-buffers-re "^\\*") ;; Ignore special buffers
 
-;; Custom key bindings
-(global-set-key "\C-z" 'undo)
-(global-set-key "\C-x\C-c" 'ignore)
-(global-set-key "\C-x\C-q" 'kill-emacs)
-(global-set-key "\C-x\C-b" 'bs-show)
-(global-set-key [f4] 'next-error)
-(global-set-key [f5] 'call-last-kbd-macro)
-(global-set-key [f6] 'compile)
-(global-set-key [f7] 'recompile)
-(global-set-key "\C-x\M-k" 'duplicate-line)
-(global-set-key "\C-xg" 'magit-status)
-;; Window movement keys: provides quick jumping between many open windows
-(global-set-key [(meta left)] 'windmove-left)
-(global-set-key [(meta right)] 'windmove-right)
-(global-set-key [(meta up)] 'windmove-up)
-(global-set-key [(meta down)] 'windmove-down)
-
 ;; binding keys to revert buffers
 (defun revert-buffer-no-confirm ()
   "Revert buffer without confirmation."
@@ -369,8 +357,6 @@ one extra step. Works with: arglist-cont."
       (when (and (buffer-file-name) (not (buffer-modified-p)))
         (revert-buffer t t t) )))
   (message "Refreshed open files.") )
-(global-set-key "\M-r" 'revert-buffer-no-confirm)
-(global-set-key "\M-R" 'revert-all-buffers)
 
 (defun remove-string-from-buffer (str)
   "Removes all occurences of the string STR from the current buffer."
