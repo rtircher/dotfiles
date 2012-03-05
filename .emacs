@@ -43,6 +43,7 @@
 (setq linum-offset t)
 
 ;; Load up customizations
+(require 'rtircher-defuns)
 (require 'rtircher-bindings)
 
 (require 'cl)
@@ -69,16 +70,6 @@
 (require 'slime)
 (slime-setup)
 
-(defun save-buffer-if-visiting-file (&optional args)
-  "Save the current buffer only if it is visiting a file"
-  (interactive)
-  (if (and (buffer-file-name) (buffer-modified-p))
-      (save-buffer args)))
-;; (add-hook 'auto-save-hook 'save-buffer-if-visiting-file)
-;; (remove-hook 'auto-save-hook 'save-buffer-if-visiting-file)
-;; And run auto-save frequently enough to be interesting
-;; (setq auto-save-interval 1)
-
 (autoload 'markdown-mode "markdown-mode.el" "Major mode for editing Markdown files" t)
 
 ;; Set up my preferred color theme
@@ -87,6 +78,7 @@
 
 (setq user-mail-address "rtircher@thoughtworks.com")
 
+;; Make emacs to replace the current selection when yanking
 (delete-selection-mode 1)
 
 ;; Block emacs to automatically copy the region when selecting text
@@ -95,22 +87,6 @@
 ;; scroll one line at a time (less "jumpy" than defaults)
 (setq mouse-wheel-scroll-amount '(1 ((shift) . 1))) ;; one line at a time
 (setq scroll-step 1) ;; keyboard scroll one line at a time
-
-;; Bind C-o and C-O to create new line below or above the current line (even from the middle of a line)
-(defun rtr-create-line-below ()
-  "Creates a new line below the current line"
-  (interactive)
-  (unless (eolp)
-    (end-of-line))
-  (newline))
-
-(defun rtr-create-line-above ()
-  "Creates a new line below the current line"
-  (interactive)
-  (unless (bolp)
-    (beginning-of-line))
-  (newline)
-  (forward-line -1))
 
 (defun turn-on-flyspell ()
   "Turns on flyspell, guaranteed."
@@ -137,25 +113,6 @@
 (autoload 'ack "full-ack" nil t)
 (autoload 'ack-find-same-file "full-ack" nil t)
 (autoload 'ack-find-file "full-ack" nil t)
-
-;; Improved searching:
-(defun ga/isearch-yank-current-word ()
-  "Pull current word from buffer into search string."
-  (interactive)
-  (save-excursion
-    (skip-syntax-backward "w_")
-    (isearch-yank-internal
-     (lambda ()
-       (skip-syntax-forward "w_")
-       (point)))))
-
-;; Improved killing:
-(defun ga/kill-entire-current-line ()
-  "Kills the entire current line."
-  (interactive)
-  (save-excursion
-    (move-beginning-of-line nil)
-    (kill-line 1)))
 
 ;; I only use vertical splits to display two windows of code next to each other,
 ;; typically those two windows will be each wide enough to display most lines, so
@@ -190,41 +147,6 @@
 		    t
 		    :family ga-plt-font
 		    :height ga-plt-font-size)
-;; (set-face-attribute 'dired-directory
-;; 		    t
-;; 		    :foreground "deep sky blue")
-;; (set-face-attribute 'dired-ignored
-;; 		    t
-;; 		    :foreground "grey30")
-;; (set-face-attribute 'font-lock-comment-delimiter-face
-;; 		    t
-;; 		    :foreground "lime green")
-;; (set-face-attribute 'font-lock-comment-face
-;; 		    t
-;; 		    :foreground "lime green")
-
-;; Make the TAB key indent if at the beginning of a line, or perform an expansion
-;; everywhere else
-(defun indent-or-expand (arg)
-  "Either indent according to mode, or expand the word preceding point."
-  (interactive "*P")
-  (if (and
-       (or (bobp) (= ?w (char-syntax (char-before))))
-       (or (eobp) (not (= ?w (char-syntax (char-after))))))
-      (dabbrev-expand arg)
-    (indent-according-to-mode)))
-(defun ga-tab-fix ()
-  (local-set-key [tab] 'indent-or-expand))
-
-(defun duplicate-line ()
-  (interactive)
-  (save-excursion
-    (move-beginning-of-line 1)
-    (kill-line)
-    (yank)
-    (open-line 1)
-    (next-line 1)
-    (yank)))
 
 ;; Get rid of extraneous and useless UI elements
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
@@ -344,26 +266,6 @@ one extra step. Works with: arglist-cont."
 (setq uniquify-separator "|") ;; Separate file and dir with a |
 (setq uniquify-after-kill-buffers-p t) ;; Rename uniquified buffers when one is killed
 (setq uniquify-ignore-buffers-re "^\\*") ;; Ignore special buffers
-
-;; binding keys to revert buffers
-(defun revert-buffer-no-confirm ()
-  "Revert buffer without confirmation."
-  (interactive) (revert-buffer t t))
-(defun revert-all-buffers ()
-  "Refreshes all open buffers from their respective files."
-  (interactive)
-  (dolist (buf (buffer-list))
-    (with-current-buffer buf
-      (when (and (buffer-file-name) (not (buffer-modified-p)))
-        (revert-buffer t t t) )))
-  (message "Refreshed open files.") )
-
-(defun remove-string-from-buffer (str)
-  "Removes all occurences of the string STR from the current buffer."
-  (interactive "MRemove string: ")
-  (save-excursion
-    (goto-char (point-min))
-    (replace-string str "")))
 
 ;; Ruby mode configuration
 (add-to-list 'auto-mode-alist '("\\.rb\\'" . ruby-mode))
