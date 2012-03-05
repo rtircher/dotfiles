@@ -12,8 +12,10 @@ FILES.each { |f| file f }
 DIRS.each { |d| directory d }
 LINKS = (FILES + DIRS).collect do |entry|
   file "#{HOME}/#{entry}" => entry do |t|
-    target = File.join(File.dirname(__FILE__), entry)
-    ln_s target, "#{HOME}/#{entry}"
+    target = t.to_s
+    source = File.join(File.dirname(__FILE__), entry)
+    puts "Exec: ln -s #{source} #{target}"
+    ln_s source, target
   end
 end
 
