@@ -173,52 +173,6 @@ one extra step. Works with: arglist-cont."
 	c-basic-offset
       nil)))
 
-;; Useful functions while working with C++ source
-;; At some point re-write this to walk up the directory tree from the current buffer
-;; until we find a marker file for a workspace root
-(defun ga-source-root ()
-  "Returns the source root for the current file. Defined as the first directory above the file that contains a file named .src-root."
-  (interactive)
-  (defun walk-up (dir)
-    (if (<= (length dir) 1)
-	""
-      (if (file-exists-p (concat dir ".src-root"))
-	  dir
-	(let ((new-dir (substring dir 0 (- (length dir) 1))))
-	  (walk-up (file-name-directory new-dir))))))
-  (walk-up (file-name-directory (buffer-file-name))))
-
-(defun ga-visit-include-file (&optional in-other-window)
-  "Visits the file #include'd on the current line."
-  (interactive "P")
-  (save-excursion
-    (move-beginning-of-line 1)
-    (if (looking-at "#include <\\([a-zA-Z_./]*\\)>")
-	(let ((inc-file (concat (ga-source-root) (match-string 1))))
-	  (if (not in-other-window)
-	      (find-file inc-file)
-	    (find-file-other-window inc-file))))))
-
-(defun ga-visit-require-file (&optional in-other-window)
-  "Visits the file require'd on the current line."
-  (interactive "P")
-  (save-excursion
-    (move-beginning-of-line 1)
-    (if (looking-at "require '\\([a-zA-Z_./]*\\)'")
-	(let ((req-file (concat (file-name-directory (buffer-file-name)) "/" (match-string 1) ".rb")))
-	  (if (not in-other-window)
-	      (find-file req-file)
-	    (find-file-other-window req-file))))))
-
-(defun ga-create-define-name (name)
-  (let ((f-name (substring name (length (ga-source-root)))))
-    (let ((s-name (replace-in-string f-name "/" "__")))
-      (replace-in-string s-name "\\." "_"))))
-
-(defun ga-class-from-file-name (file-name)
-  (let ((f-name (substring file-name (length (file-name-directory file-name)))))
-    (substring f-name 0 (- (length f-name) 2))))
-
 ;; C-mode configuration
 (defun ga-c-mode-common-hook ()
   (ga-aegean-coding-standard)
