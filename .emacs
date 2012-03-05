@@ -173,33 +173,6 @@ one extra step. Works with: arglist-cont."
 	c-basic-offset
       nil)))
 
-;; C++ coding standards customisations for the Netpage team
-(defun ga-netpage-coding-standard ()
-  (c-set-style "stroustrup")
-  (setq tab-width 4)
-  (setq c-basic-offset tab-width)
-  (c-set-offset 'inline-open 0)
-  (c-set-offset 'arglist-cont '(ga-c-lineup-open-paren c-lineup-gcc-asm-reg 0))
-  (c-set-offset 'arglist-close 0)
-  (C-set-offset 'topmost-intro-cont '(ga-c-lineup-open-paren c-lineup-topmost-intro-cont))
-  (c-set-offset 'innamespace '(ga-c-lineup-anon-namespace 0))
-  ;; Treat *.h files as C++, not C
-  (add-to-list 'auto-mode-alist '("\\.[h]\\'" . c++-mode))
-  (setq indent-tabs-mode nil))
-
-;; Objective-C coding standards for the Aegean sub-team
-(defun ga-aegean-coding-standard ()
-  (c-set-style "stroustrup")
-  (setq tab-width 2)
-  (setq c-basic-offset tab-width)
-  (c-set-offset 'inline-open 0)
-  (c-set-offset 'arglist-cont '(ga-c-lineup-open-paren c-lineup-gcc-asm-reg 0))
-  (c-set-offset 'arglist-close 0)
-  ;; Treat *.h files as Objective-C, not C
-  (add-to-list 'auto-mode-alist '("\\.[h]\\'" . objc-mode))
-  (add-to-list 'auto-mode-alist '("\\.mm\\'" . objc-mode))
-  (setq indent-tabs-mode nil))
-
 ;; Useful functions while working with C++ source
 ;; At some point re-write this to walk up the directory tree from the current buffer
 ;; until we find a marker file for a workspace root
