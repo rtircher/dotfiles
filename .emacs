@@ -98,7 +98,7 @@
   (interactive)
   (unless (eolp)
     (end-of-line))
-  (newline-and-indent))
+  (newline))
 (global-set-key "\M-o" 'rtr-create-line-below)
 
 (defun rtr-create-line-above ()
@@ -107,8 +107,7 @@
   (unless (bolp)
     (beginning-of-line))
   (newline)
-  (forward-line -1)
-  (indent-according-to-mode))
+  (forward-line -1))
 (global-set-key "\M-O" 'rtr-create-line-above)
 
 (defun turn-on-flyspell ()
