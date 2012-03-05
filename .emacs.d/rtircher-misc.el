@@ -7,6 +7,10 @@
 (color-theme-initialize)
 (color-theme-solarized-dark)
 
+;; Updating the color of the selected region because the default color is difficult to differenciate from the background for me
+(custom-set-faces
+  '(region ((t (:background "#14323C")))))
+
 ;; Adjustments to the font lock colouring. Made manually rather than
 ;; with custom as it provides more reliable control.
 (set-face-attribute 'default
