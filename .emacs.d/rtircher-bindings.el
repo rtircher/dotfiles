@@ -11,9 +11,12 @@
 (global-set-key "\C-x\M-k" 'duplicate-line)
 (global-set-key "\C-xj" 'ga/kill-entire-current-line)
 
+;; Changing kill emacs
 (global-set-key "\C-x\C-c" 'ignore)
-
 (global-set-key "\C-x\C-q" 'kill-emacs)
+
+ ;; Jump to a definition in the current file. (This is awesome.)
+ (global-set-key (kbd "C-x C-i") 'ido-imenu)
 
 (global-set-key "\C-x\C-b" 'bs-show)
 
