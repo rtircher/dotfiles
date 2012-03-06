@@ -24,7 +24,14 @@ task :setup_gitignore do
   sh %Q|git config --global core.excludesfile .gitignore|
 end
 
+task :emacs_client_msg do
+  puts
+  puts 'Now link emacs to the app emacs client:'
+  puts 'alias emacs="[location of Emacs.app]/Emacs.app/Contents/MacOS/bin/emacsclient -n"'
+end
+
 desc "Installs symlinks in the home directory for all config files"
 task :install => LINKS
 
-task :default => [:install, :setup_gitignore]
+desc "Do all the work for a clean install"
+task :default => [:install, :setup_gitignore, :emacs_client_msg]
