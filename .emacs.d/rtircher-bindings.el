@@ -37,5 +37,9 @@
 (global-set-key "\M-r" 'revert-buffer-no-confirm)
 (global-set-key "\M-R" 'revert-all-buffers)
 
+;; Font size
+(define-key global-map (kbd "C-=") 'text-scale-increase)
+(define-key global-map (kbd "C--") 'text-scale-decrease)
+
 (provide 'rtircher-bindings)
 ;;; rtircher-bindings.el ends here

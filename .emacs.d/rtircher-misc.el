@@ -99,12 +99,12 @@
 
 ;; nXHtml mode configuration
 (setq
- nxhtml-global-minor-mode t
- nxhtml-skip-welcome t
- indent-region-mode t
- rng-nxml-auto-validate-flag nil
- nxml-degraded t
- nxml-child-indent 2)
+  nxhtml-global-minor-mode t
+  nxhtml-skip-welcome t
+  indent-region-mode t
+  rng-nxml-auto-validate-flag nil
+  ;; nxml-degraded t
+  nxml-child-indent 2)
 (add-to-list 'auto-mode-alist '("\\.html\\.erb\\'" . eruby-nxhtml-mumamo))
 (add-to-list 'auto-mode-alist '("\\.\\(xml\\|xsl\\|rng\\|xhtml\\)\\'" . nxml-mode))
 
