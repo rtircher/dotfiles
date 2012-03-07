@@ -3,6 +3,8 @@
 ;; Get rid of extraneous and useless UI elements
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
 
+(defalias 'yes-or-no-p 'y-or-n-p)
+
 ;; Set up my preferred color theme
 (color-theme-initialize)
 (color-theme-solarized-dark)
