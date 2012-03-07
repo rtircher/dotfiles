@@ -1,16 +1,5 @@
-;; No startup message!
-(setq inhibit-startup-message t)
-
 ;; Load some per-platform config settings
 (load "~/.emacs.d/platform-configs/init.el")
-
-;; Stupid emacs is stupid
-(setq mac-option-key-is-meta nil)
-(setq mac-command-key-is-meta t)
-(setq mac-command-modifier 'meta)
-(setq mac-option-modifier nil)
-(setq make-backup-files nil)
-
 
 ;;; This was installed by package-install.el.
 ;;; This provides support for the package system and
@@ -58,7 +47,6 @@
 
 ;; Turn on linum-mode for every visited file
 (add-hook 'find-file-hook 'linum-mode)
-(setq linum-offset t)
 
 (require 'cl)
 (require 'dired)
@@ -75,6 +63,7 @@
 (require 'feature-mode)
 
 ;; Load up customizations
+(require 'rtircher-vars)
 (require 'rtircher-defuns)
 (require 'rtircher-bindings)
 (require 'rtircher-misc)

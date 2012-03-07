@@ -30,29 +30,12 @@
 
 (set-default 'indicate-empty-lines t)
 
-(setq tab-width 2)
-(setq indent-tabs-mode nil)
-
-(setq visible-bell t)
-
 (put 'upcase-region 'disabled nil)
 
 (setq user-mail-address "rtircher@thoughtworks.com")
 
 ;; Make emacs to replace the current selection when yanking
 (delete-selection-mode 1)
-
-;; Block emacs to automatically copy the region when selecting text
-(setq mouse-drag-copy-region nil)
-
-;; scroll one line at a time (less "jumpy" than defaults)
-(setq mouse-wheel-scroll-amount '(1 ((shift) . 1))) ;; one line at a time
-(setq scroll-step 1) ;; keyboard scroll one line at a time
-
-;; I only use vertical splits to display two windows of code next to each other,
-;; typically those two windows will be each wide enough to display most lines, so
-;; continue longer lines
-(setq truncate-partial-width-windows nil)
 
 (custom-set-variables
   ;; custom-set-variables was added by Custom.
@@ -70,12 +53,6 @@
  '(windmove-wrap-around t))
 (winner-mode 1)
 
-;; Give better naming of identically named files
-(setq uniquify-buffer-name-style 'reverse) ;; Put the dir name at the end of the buffer name
-(setq uniquify-separator "|") ;; Separate file and dir with a |
-(setq uniquify-after-kill-buffers-p t) ;; Rename uniquified buffers when one is killed
-(setq uniquify-ignore-buffers-re "^\\*") ;; Ignore special buffers
-
 (add-hook 'text-mode-hook 'turn-on-flyspell)
 
 ;; Ack config
@@ -84,7 +61,6 @@
 (autoload 'ack-find-same-file "full-ack" nil t)
 (autoload 'ack-find-file "full-ack" nil t)
 
-(setq default-major-mode 'text-mode)
 ;; (add-hook 'text-mode-hook 'turn-on-auto-fill)
 (add-hook 'text-mode-hook 'turn-on-flyspell)
 (add-hook 'message-mode-hook 'turn-on-flyspell)
@@ -109,9 +85,6 @@
   nxml-child-indent 2)
 (add-to-list 'auto-mode-alist '("\\.html\\.erb\\'" . eruby-nxhtml-mumamo))
 (add-to-list 'auto-mode-alist '("\\.\\(xml\\|xsl\\|rng\\|xhtml\\)\\'" . nxml-mode))
-
-;; Puppet mode configuration
-(add-to-list 'auto-mode-alist '("\\.pp\\'" . puppet-mode))
 
 ;; Use markdown mode
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
