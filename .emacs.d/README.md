@@ -20,16 +20,22 @@ C-h m: shows all the key bindgins active in the buffer
 ### Mark
 C-<space>: set region start (end is the point)
 C-g: cancel region
-### Mark ring
+#### Mark ring
 C-u C-<space>: Invoke mark ring
 
-### Handy navigation trick to vuew other area of buffer and come back
+#### Handy navigation trick to vuew other area of buffer and come back
 - Set mark
 - navigate to wherever you want
 - use mark ring to come back at last the set mark
 
 C-x j: kills entire line
 C-k: kills end of line from point
+
+### Rectangle mode
+Select text in normal fashion.  The rectangle formed by the point at the begining of selection and the one at the end of the selection indicates the rectangle that is going to be used.
+C-x r t -> rectangle replace
+C-x r y -> rectangle paste
+C-x r k -> rectangle kill
 
 ### Auto indent
 M-\
