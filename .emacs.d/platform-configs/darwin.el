@@ -11,5 +11,8 @@
 (setq mac-command-modifier 'meta)
 (setq mac-option-modifier nil)
 
+;; Make current path available to emacs
+(setenv "PATH" (shell-command-to-string "echo $PATH"))
+
 ;; Split window at startup
 (split-window-horizontally)

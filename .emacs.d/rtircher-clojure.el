@@ -10,5 +10,7 @@
 (require 'slime)
 (slime-setup)
 
+(add-to-list 'auto-mode-alist '("\\.cljs\\'" . clojure-mode))
+
 (provide 'rtircher-clojure)
 ;;; rtircher-clojure.el ends here
