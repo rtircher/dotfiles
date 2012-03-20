@@ -9,11 +9,11 @@
 (color-theme-initialize)
 (color-theme-solarized-dark)
 
-;; Updating the color of the selected region because the default color is difficult to differenciate from the background for me
+;; Updating the color of the selected region because the default color is difficult to differentiate from the background for me
 (custom-set-faces
   '(region ((t (:background "#14323C")))))
 
-;; Adjustments to the font lock colouring. Made manually rather than
+;; Adjustments to the font lock coloring. Made manually rather than
 ;; with custom as it provides more reliable control.
 (set-face-attribute 'default
 		    t
@@ -65,11 +65,11 @@
 (add-hook 'text-mode-hook 'turn-on-flyspell)
 (add-hook 'message-mode-hook 'turn-on-flyspell)
 
-(defun turn-on-flyspell ()
-  "Turns on flyspell, guaranteed."
-  (interactive)
-  (flyspell-mode 1))
-(setq ispell-program-name "/usr/local/bin/ispell")
+;; (defun turn-on-flyspell ()
+;;   "Turns on flyspell, guaranteed."
+;;   (interactive)
+;;   (flyspell-mode 1))
+(setq ispell-program-name "/usr/local/bin/aspell")
 
 ;; Configure Snippeting engine
 (yas/initialize)

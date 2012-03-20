@@ -11,6 +11,9 @@
 (global-set-key "\C-x\M-k" 'duplicate-line)
 (global-set-key "\C-xj" 'ga/kill-entire-current-line)
 
+;; Flyspell
+(global-set-key "\M-S" 'ispell-buffer)
+
 ;; Changing kill emacs
 (global-set-key "\C-x\C-c" 'ignore)
 (global-set-key "\C-x\C-q" 'kill-emacs)
