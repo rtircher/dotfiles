@@ -53,7 +53,7 @@
  '(windmove-wrap-around t))
 (winner-mode 1)
 
-(add-hook 'text-mode-hook 'turn-on-flyspell)
+;; (add-hook 'text-mode-hook 'turn-on-flyspell)
 
 ;; Ack config
 (autoload 'ack-same "full-ack" nil t)
@@ -62,8 +62,8 @@
 (autoload 'ack-find-file "full-ack" nil t)
 
 ;; (add-hook 'text-mode-hook 'turn-on-auto-fill)
-(add-hook 'text-mode-hook 'turn-on-flyspell)
-(add-hook 'message-mode-hook 'turn-on-flyspell)
+;; (add-hook 'text-mode-hook 'turn-on-flyspell)
+;; (add-hook 'message-mode-hook 'turn-on-flyspell)
 
 ;; (defun turn-on-flyspell ()
 ;;   "Turns on flyspell, guaranteed."
