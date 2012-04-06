@@ -1,5 +1,11 @@
 ;;; rtircher-bindings.el --- Set up some handy key bindings
 
+;; Unbinding up, right, down, left keys
+(global-set-key [up] nil)
+(global-set-key [right] nil)
+(global-set-key [down] nil)
+(global-set-key [left] nil)
+
 ;; Adding vim style o and O functions
 (global-set-key "\M-o" 'rtr-create-line-below)
 (global-set-key "\M-O" 'rtr-create-line-above)
