@@ -71,7 +71,8 @@
 ;; binding keys to revert buffers
 (defun revert-buffer-no-confirm ()
   "Revert buffer without confirmation."
-  (interactive) (revert-buffer t t))
+  (interactive) (revert-buffer t t)
+  (message "Current buffer refreshed."))
 (defun revert-all-buffers ()
   "Refreshes all open buffers from their respective files."
   (interactive)
